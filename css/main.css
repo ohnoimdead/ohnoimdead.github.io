@@ -1,0 +1,173 @@
+/*$background: #292929;
+$foreground: #EEE;
+$highlight: #FFCB33;
+$lowlight: #A600FF;*/
+
+@font-face {
+  font-family: "Merriweather";
+  font-style: italic;
+  font-weight: 700;
+  src: local('Merriweather Bold Italic'), url(../webfonts/Merriweather-BoldItalic.ttf);
+}
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  src: local('Montserrat Regular'), url(../webfonts/Montserrat-Regular.ttf);
+}
+
+body {
+  border: 0;
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 16pt;
+  letter-spacing: 0.03em;
+  background-color: #292929;
+  color: #EEE;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Merriweather", serif;
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: 0.05em;
+  margin: 0.7em 0;
+}
+
+a {
+  text-decoration: none;
+  color: #FFCB33;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+nav ul {
+  padding: 0;
+}
+nav ul li {
+  list-style: none;
+  font-size: 1.1em;
+  margin-right: 1.3em;
+  white-space: nowrap;
+}
+@media only screen and (min-width: 48em) {
+  nav ul li {
+    display: inline;
+  }
+}
+
+.headline {
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+.headline .logo {
+  flex: 0;
+  margin-right: 0.5em;
+}
+@media only screen and (max-width: 26em) {
+  .headline .logo {
+    flex: 1;
+  }
+}
+.headline .logo img {
+  width: 150px;
+  height: 150px;
+}
+.headline .nav {
+  flex: 1;
+}
+.headline .nav h1 {
+  white-space: nowrap;
+  margin-top: 0;
+  padding-top: 0.4em;
+}
+@media only screen and (max-width: 65em) {
+  .headline .nav h1 {
+    font-size: 1.4em;
+  }
+}
+
+.container {
+  padding-top: 0.7em;
+  width: 90%;
+  max-width: 70rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media only screen and (min-width: 33.75em) {
+  .container {
+    width: 80%;
+  }
+}
+@media only screen and (min-width: 60em) {
+  .container {
+    width: 68%;
+  }
+}
+
+.divider {
+  background: #FFCB33;
+  background: -webkit-linear-gradient(left, #FFCB33, #A600FF);
+  background: -moz-linear-gradient(left, #FFCB33, #A600FF);
+  background: linear-gradient(to right, #FFCB33, #A600FF);
+  height: 1px;
+  margin: 0.7em 0;
+}
+
+.footer {
+  text-align: center;
+  margin-bottom: 0.7em;
+}
+
+.icon {
+  font-size: 1.2em;
+  margin-right: 0.2em;
+}
+.icon:hover {
+  text-decoration: none;
+}
+
+.portfolio img {
+  width: 100%;
+}
+
+.post-content p {
+  margin: 0.7em 0;
+}
+.post-content h1 {
+  font-weight: 400;
+  font-size: 1.4em;
+}
+.post-content h2 {
+  font-weight: 400;
+  font-size: 1.2em;
+}
+.post-content h3 {
+  font-weight: 400;
+  font-size: 1em;
+}
+
+.post-date {
+  font-size: 0.8em;
+}
+
+.synopsis {
+  margin-top: 0;
+}
+
+.project-card-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.project-card {
+  flex: 1 1 auto;
+  margin-right: 0.7em;
+}
