@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tres Henry</title>
-    <link>http://treshenry.net/</link>
-    <description>Recent content on Tres Henry</description>
+    <title>Projects on Tres Henry</title>
+    <link>http://treshenry.net/projects/</link>
+    <description>Recent content in Projects on Tres Henry</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 18 Mar 2019 15:22:10 +0100</lastBuildDate>
     
-	<atom:link href="http://treshenry.net/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://treshenry.net/projects/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
