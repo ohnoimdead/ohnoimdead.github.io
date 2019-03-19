@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Tres Henry</title>
+    <link>http://treshenry.net/posts/</link>
+    <description>Recent content in Posts on Tres Henry</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 19 Mar 2019 09:11:12 +0100</lastBuildDate>
+    
+	<atom:link href="http://treshenry.net/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Dear Diary</title>
+      <link>http://treshenry.net/posts/deardiary/</link>
+      <pubDate>Tue, 19 Mar 2019 09:11:12 +0100</pubDate>
+      
+      <guid>http://treshenry.net/posts/deardiary/</guid>
+      <description>Personal sites are a complicated matter. How do you authentically project who you are into a 2d digital space? This site has gone through nearly as many iterations as I have in the time I&amp;rsquo;ve owned the domain. And that&amp;rsquo;s not counting all the other personal sites I&amp;rsquo;ve had over the years. A personal site is inherently something that changes as you change.
+Also critically important is the way you interface with your personal site.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -168,17 +168,17 @@ nav ul li {
   text-align: center;
 }
 
-.project-title {
+.top-title {
   border-bottom: 1px solid #444;
   padding: 1em 0;
 }
-.project-title .name {
+.top-title .name {
   font-size: 1.8em;
   font-family: "Merriweather";
   font-style: italic;
   color: white;
 }
-.project-title .dates {
+.top-title .dates {
   padding-top: 0.6em;
   font-size: 0.8em;
   color: #AAA;
@@ -198,4 +198,11 @@ nav ul li {
   padding: 0 0.5em 0.5em 0;
   text-overflow: ellipsis;
   overflow: hidden;
+}
+
+.prev-next {
+  text-align: center;
+}
+.prev-next a {
+  padding-right: 1em;
 }

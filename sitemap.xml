@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://treshenry.net/posts/deardiary/</loc>
+    <lastmod>2019-03-19T09:11:12+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://treshenry.net/projects/goldenoracle/</loc>
     <lastmod>2019-03-18T16:33:38+01:00</lastmod>
   </url>
@@ -27,6 +32,12 @@
   </url>
   
   <url>
+    <loc>http://treshenry.net/posts/</loc>
+    <lastmod>2019-03-19T09:11:12+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://treshenry.net/projects/</loc>
     <lastmod>2019-03-18T16:33:38+01:00</lastmod>
     <priority>0</priority>
@@ -39,7 +50,7 @@
   
   <url>
     <loc>http://treshenry.net/</loc>
-    <lastmod>2019-03-18T16:33:38+01:00</lastmod>
+    <lastmod>2019-03-19T09:11:12+01:00</lastmod>
   </url>
   
 </urlset>
