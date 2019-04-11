@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://treshenry.net/posts/unityspritemadness/</loc>
+    <lastmod>2019-04-11T09:46:13+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://treshenry.net/posts/silentearth/</loc>
     <lastmod>2019-04-04T11:24:50+02:00</lastmod>
   </url>
@@ -38,7 +43,7 @@
   
   <url>
     <loc>http://treshenry.net/posts/</loc>
-    <lastmod>2019-04-04T11:24:50+02:00</lastmod>
+    <lastmod>2019-04-11T09:46:13+02:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -55,7 +60,7 @@
   
   <url>
     <loc>http://treshenry.net/</loc>
-    <lastmod>2019-04-04T11:24:50+02:00</lastmod>
+    <lastmod>2019-04-11T09:46:13+02:00</lastmod>
   </url>
   
 </urlset>

@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Tres Henry</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 04 Apr 2019 11:24:50 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 11 Apr 2019 09:46:13 +0200</lastBuildDate>
     
 	<atom:link href="http://treshenry.net/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Unity Sprite Madness</title>
+      <link>http://treshenry.net/posts/unityspritemadness/</link>
+      <pubDate>Thu, 11 Apr 2019 09:46:13 +0200</pubDate>
+      
+      <guid>http://treshenry.net/posts/unityspritemadness/</guid>
+      <description>Or: One of the Many Ways Unity Screws New Programmers Let&amp;rsquo;s say you are fairly new to coding and you want to make a 2D game in Unity. You watch some tuts, you get excited, you come up with a concept, you make some art, you figure out how to create sprites, you make some game objects, you add behavior to those game objects, etc. Eventually you realize that part of your game needs to dynamically change the sprite displayed on an object based on a game event, like user interaction.</description>
+    </item>
     
     <item>
       <title>Silent Earth</title>
