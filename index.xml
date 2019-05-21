@@ -6,10 +6,21 @@
     <description>Recent content on Tres Henry</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 11 Apr 2019 09:46:13 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 21 May 2019 16:00:44 +0200</lastBuildDate>
     
 	<atom:link href="http://treshenry.net/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Unity 2D Performance</title>
+      <link>http://treshenry.net/posts/unityperformance/</link>
+      <pubDate>Tue, 21 May 2019 16:00:44 +0200</pubDate>
+      
+      <guid>http://treshenry.net/posts/unityperformance/</guid>
+      <description>Unity 2D Performance tl;dr Unity performance for 2D is terrible.
+I spent some time prototyping a visually simple, top-down, 2D sprite-based game and noticed skipped frames. After poking through the profiler and discovering a crazy amount of time spent waiting to sync FPS, I turned off VSync, which fixed the frame drops and introduced significant screen tearing.
+I spent some time trying to debug the poor performance assuming it was something I was doing wrong (lot&amp;rsquo;s of 2D games are made in Unity right?</description>
+    </item>
     
     <item>
       <title>Unity Sprite Madness</title>
