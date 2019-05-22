@@ -33,75 +33,103 @@
 
   
     <div class="top-title">
-  <div class="name"><a class="permalink" href="http://treshenry.net/posts/unityperformance/">Unity 2D Performance</a></div>
-  <div class="dates">21.05.2019</div>
+  <div class="name"><a class="permalink" href="http://treshenry.net/posts/unityspritemadness/">Unity Sprite Madness</a></div>
+  <div class="dates">11.04.2019</div>
 </div>
 <div class="shrink-content">
   
 
-<h1 id="unity-2d-performance">Unity 2D Performance</h1>
+<h1 id="or-one-of-the-many-ways-unity-screws-new-programmers">Or: One of the Many Ways Unity Screws New Programmers</h1>
 
-<p>tl;dr Unity performance for 2D is terrible.</p>
+<p>Let&rsquo;s say you are fairly new to coding and you want to make a 2D game in
+Unity. You watch some tuts, you get excited, you come up with a concept, you
+make some art, you figure out how to create sprites, you make some game objects,
+you add behavior to those game objects, etc. Eventually you realize that part of
+your game needs to dynamically change the sprite displayed on an object based on
+a game event, like user interaction. It&rsquo;s not an animation, you just need to
+swap the displayed sprite.</p>
 
-<p>I spent some time prototyping a visually simple, top-down,
-2D sprite-based game and noticed skipped frames. After poking
-through the profiler and discovering a crazy amount of time spent waiting to
-sync FPS, I turned off VSync, which fixed the frame drops and introduced
-significant screen tearing.</p>
+<p>At first you might just have a bunch of object prototypes with sprites directly
+assigned to their SpriteRenderer. Then you just swap those objects out as
+needed. However, as your list of sprites grows, this quickly becomes a pain in
+the ass.</p>
 
-<p>I spent some time trying to debug the poor performance assuming it was something
-I was doing wrong (lot&rsquo;s of 2D games are made in Unity right?) and started
-removing objects from a test scene, then running the profiler after each removal, trying and figure out which
-objects were causing the problem.</p>
+<p>You are already using a <code>SpriteAtlas</code> to handle your sprite sheet, so your next
+move might be to simply add some dynamism to an object&rsquo;s sprite renderer like
+so:</p>
 
-<p>Until all the objects were gone.</p>
+<blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp">spriteRenderer.sprite = spriteAtlas.GetSprite(spriteName);</code></pre></div>
+</blockquote>
 
-<p>Wait, what?</p>
+<p>Cool! This seems to work great and was super easy. Also, it just looks right,
+so this must be what you are supposed to do.</p>
 
-<p>I&rsquo;m on a MacBook Pro, 2.9 GHz i7, Radeon Pro 560 w/ 4 GB and trying to render,
-then move, a few sprites on the screen. This should NOT be a problem. So to
-just verify that I wasn&rsquo;t loosing my mind I created a brand new Unity 2D project
-(2019.3.0a2, the latest as of writing this), fired up the profiler, and clicked
-play. The following screen shots show the results. Again, this is a brand
-new project with absolutely nothing in it but a camera and whatever default crap
-Unity throws into projects.</p>
+<p>You test your game out. You play for a while, do lot&rsquo;s of interactions with lots
+of objects that update their sprites, and you start to notice the game getting
+slower and slower. After a few minutes it becomes unplayable. You try to exit
+the game and it takes 45 seconds to close.</p>
+
+<h2 id="what-happened">What Happened?</h2>
+
+<p>Let&rsquo;s take a look at the documentation for <a href="https://docs.unity3d.com/ScriptReference/U2D.SpriteAtlas.GetSprite.html">SpriteAtlas.GetSprite()</a>:</p>
+
+<blockquote>
+<p>&ldquo;Clone the first Sprite in this atlas that matches the name packed in this
+atlas and return it. The clone will use the packed texture of this atlas.&rdquo;</p>
+</blockquote>
+
+<p>Because you are new to programming you might not even really understand what this
+documentation means. You also may not have playtested your game long enough to
+see the leak. In fact, you may have gone to production and release not even
+knowing this was an issue, particularly if the number of objects and sprites
+isn&rsquo;t very large, only to get crash reports from users.</p>
+
+<p>If you did notice the leak through playtesting you might have turned to Unity&rsquo;s
+much touted Profiler to figure out what&rsquo;s going on. After reading the docs you
+record some gameplay through the editor then check the Memory category, which
+shows something like this:</p>
 
 <figure>
-    <img src="/images/unity_performance.png"/> 
+    <img src="/images/unity_profiler.png"/> 
 </figure>
 
 
-<figure>
-    <img src="/images/unity_performance_zoom.png"/> 
-</figure>
+<p><em>What the hell?? 243 textures? I only have one! Half a gig of overall mem usage?
+What am I doing wrong??!?!</em></p>
 
+<p>Of course, what you don&rsquo;t realize is that the profiler is showing you what the
+Unity editor is using, not just your game. To accurately profile your game
+you need to do so against a stand-alone build, something the Unity docs don&rsquo;t
+even cover.</p>
 
-<p>That&rsquo;s right folks: a 127ms frame rendering absolutely nothing but a
-background color.</p>
+<h2 id="so">So&hellip;</h2>
 
-<p>My next thought was that maybe this is just the editor causing poor performance, because it is quite slow.
-I added a single object with a sprite renderer, a simple 32x32 sprite, and
-a very simple script to move the object on key presses. I built and ran the game.
-There were visible frame skips (or tears if I turned off VSync) rendering and moving
-a single sprite in an otherwise completely empty project.</p>
+<p>I don&rsquo;t want to rag on Unity too much. There&rsquo;s a lot about Unity that is great
+and I love seeing all the amazing stuff that Unity is enabling.</p>
 
-<p>As a final test, I moved over to my Windows Surface and ran
-the same project. While it did run significantly better on the Windows machine, a
-single moving sprite was unable to reliably achieve 60 fps.</p>
+<p>But as an introduction to programming, it is just plain bad. The above
+example is only one of very very many. You can swap &ldquo;sprite&rdquo; for &ldquo;material&rdquo;
+and get another example, which is probably a lot more common since it impacts
+both 2D and 3D games. (Search for &ldquo;unity material leak&rdquo; if you want to become
+very sad.)</p>
 
-<p>I know. It sounds insane. I&rsquo;m guessing the studios producing 2D titles using Unity
-have a lot of tricks up their sleeve to improve performance. But at some point
-you have to ask: does the benefit outweigh the performance costs?</p>
+<p>Which brings me to my primary gripe about the platform:</p>
 
-<p>It&rsquo;s also worth noting that my VR game (also written in Unity) ran great
-with &gt; 60 FPS rendering stereoscopic images simultaneously on an older Android mobile.</p>
+<blockquote>
+<p><strong><em>If you learn to program through Unity, you are going to be a bad programmer.</em></strong></p>
+</blockquote>
 
-<p>So I guess Unity is great for 3D, and pretty bad for 2D.</p>
+<p>That is Unity&rsquo;s fault, not yours.</p>
+
+<p>Unity does not take it&rsquo;s role seriously as a developer gateway. Which is a real shame
+because a lot of potentially amazing programmers are getting the shaft right
+when their enthusiasm should be transmuted into strong fundamentals.</p>
 
 </div>
 <div class="prev-next">
   
-    <a href='http://treshenry.net/posts/unityspritemadness/'><i class="far fa-arrow-left"></i> Previous</a>
+    <a href='http://treshenry.net/posts/silentearth/'><i class="far fa-arrow-left"></i> Previous</a>
   
   
 </div>
